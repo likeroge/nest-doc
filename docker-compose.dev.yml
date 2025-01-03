@@ -9,4 +9,14 @@ services:
     ports:
       - "3000:3000"
     working_dir: /app
-    command: npm run start:dev 
+    command: npm run start:prod
+
+  nginx-nest1:
+    image: nginx:alpine
+    container_name: nginx-nest1
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "80:80" 
+    depends_on:
+      - node-app
