@@ -3,6 +3,7 @@ version: '3.8'
 services:
   node-app:
     image: node
+    container_name: nest1
     volumes:
       - .:/app
     ports:
